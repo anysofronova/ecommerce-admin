@@ -63,3 +63,11 @@ next-env.d.ts
 
 # Project exclude paths
 /tailwind.config.js!/.env
+.idea/.gitignore
+.idea/ecommerce-admin.iml
+.idea/modules.xml
+.idea/prettier.xml
+.idea/vcs.xml
+.idea/codeStyles/codeStyleConfig.xml
+.idea/codeStyles/Project.xml
+.idea/inspectionProfiles/Project_Default.xml

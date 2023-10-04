@@ -1,19 +1,20 @@
-import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-import { ClerkProvider } from "@clerk/nextjs";
+import { ReactNode } from 'react'
+import type { Metadata } from 'next'
+import { Inter } from 'next/font/google'
+import { ClerkProvider } from '@clerk/nextjs'
 
-import { ModalProvider } from "@/components/providers/modal-provider";
+import { ModalProvider } from '@/components/providers/modal-provider'
 
-import "./globals.css";
+import './globals.css'
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: "Ecommerce Admin",
-  description: "Ecommerce Admin by Anna Sofronova",
-};
+  title: 'Ecommerce Admin',
+  description: 'Ecommerce Admin by Anna Sofronova'
+}
 
-const RootLayout = ({ children }: { children: React.ReactNode }) => {
+const RootLayout = ({ children }: { children: ReactNode }) => {
   return (
     <ClerkProvider>
       <html lang="en" className="h-full">
@@ -23,7 +24,7 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
         </body>
       </html>
     </ClerkProvider>
-  );
-};
+  )
+}
 
-export default RootLayout;
+export default RootLayout

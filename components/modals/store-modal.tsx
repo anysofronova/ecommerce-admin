@@ -9,11 +9,13 @@ import {
   FormControl,
   FormField,
   FormItem,
-  FormLabel
+  FormLabel,
+  FormMessage
 } from '@/components/ui/form'
 import { Modal } from '@/components/ui/modal'
 import { Input } from '@/components/ui/input'
 import { useStoreModal } from '@/hooks/use-store-modal'
+import { Button } from '../ui/button'
 
 const formSchema = z.object({
   name: z.string().min(1)
@@ -36,8 +38,10 @@ export const StoreModal = () => {
 
   return (
     <Modal
-      title={'Create Store'}
-      description={'Add a new store to manage products any categories'}
+      title={'Enter the Name of Your New Store'}
+      description={
+        'Please enter the name of your new store to begin the creation process.'
+      }
       isOpen={storeModal.isOpen}
       onClose={storeModal.onClose}
     >
@@ -54,10 +58,16 @@ export const StoreModal = () => {
                     <FormControl>
                       <Input placeholder="E-commerce" {...field} />
                     </FormControl>
+                    <FormMessage></FormMessage>
                   </FormItem>
                 )}
               />
-              <div className="pt-6 space-x-2 flex items-center justify-end"></div>
+              <div className="pt-6 space-x-2 flex items-center justify-end">
+                <Button variant="outline" onClick={storeModal.onClose}>
+                  Cancel
+                </Button>
+                <Button type="submit">Continue</Button>
+              </div>
             </form>
           </Form>
         </div>

@@ -15,12 +15,12 @@ const SetupPage = () => {
 
   return (
     <div className="p-4 text-slate-500">
-      <Modal
+      {/* <Modal
         title={'Hello'}
         description={'My dear Anna'}
         isOpen={isOpen}
         onClose={() => {}}
-      />
+      /> */}
     </div>
   )
 }

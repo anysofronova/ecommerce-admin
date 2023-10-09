@@ -3,6 +3,7 @@ import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import { ClerkProvider } from '@clerk/nextjs'
 
+import prismadb from '@/lib/prismadb'
 import { ModalProvider } from '@/components/providers/modal-provider'
 
 import './globals.css'

@@ -3,10 +3,8 @@ import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import { ClerkProvider } from '@clerk/nextjs'
 
-import prismadb from '@/lib/prismadb'
-import { ModalProvider } from '@/components/providers/modal-provider'
-
 import './globals.css'
+import { ModalProvider, ToasterProvider } from '@/components/providers'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -20,6 +18,7 @@ const RootLayout = ({ children }: { children: ReactNode }) => {
     <ClerkProvider>
       <html lang="en" className="h-full">
         <body className={`${inter.className} h-full`}>
+          <ToasterProvider />
           <ModalProvider />
           {children}
         </body>

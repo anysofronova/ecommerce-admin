@@ -13,16 +13,7 @@ const SetupPage = () => {
     if (!isOpen) onOpen()
   }, [onOpen, isOpen])
 
-  return (
-    <div className="p-4 text-slate-500">
-      {/* <Modal
-        title={'Hello'}
-        description={'My dear Anna'}
-        isOpen={isOpen}
-        onClose={() => {}}
-      /> */}
-    </div>
-  )
+  return <div className="p-4">Root page</div>
 }
 
 export default SetupPage

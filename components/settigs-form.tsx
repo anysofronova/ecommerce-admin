@@ -8,6 +8,7 @@ import { Trash } from 'lucide-react'
 import { Store } from '@prisma/client'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
+import { useParams, useRouter } from 'next/navigation'
 
 import {
   Button,
@@ -19,11 +20,11 @@ import {
   FormLabel,
   FormControl,
   FormMessage,
-  Input
+  Input,
+  ApiAlert
 } from '@/components/ui'
-import { useParams, useRouter } from 'next/navigation'
-import AlertModal from './modals/alert-modal'
-import { ApiAlert } from './ui/api-alert'
+import { AlertModal } from '@/components/modals/alert-modal'
+import { UseOrigin } from '@/hooks/use-origin'
 
 interface SettinsFormProps {
   initialData: Store
@@ -38,6 +39,7 @@ const formSchema = z.object({
 export const SettinsForm: FC<SettinsFormProps> = ({ initialData }) => {
   const params = useParams()
   const router = useRouter()
+  const origin = UseOrigin()
 
   const form = useForm<SettinsFormValues>({
     resolver: zodResolver(formSchema),

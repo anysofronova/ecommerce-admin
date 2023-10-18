@@ -1,7 +1,7 @@
 import { FC } from 'react'
 import prismadb from '@/lib/prismadb'
 
-import { BillboardForm } from '@/components/billboard-form'
+import { BillboardForm } from '@/components/billboard/billboard-form'
 
 interface BillboadPageProps {
   params: { billboardId: string }

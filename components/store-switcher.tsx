@@ -11,7 +11,7 @@ import {
 } from 'lucide-react'
 
 import { cn } from '@/lib/utils'
-import { useStoreModal } from '@/hooks/use-store-modal'
+import { useStoreModal } from '@/hooks'
 import {
   Popover,
   PopoverTrigger,

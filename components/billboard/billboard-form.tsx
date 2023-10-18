@@ -21,11 +21,9 @@ import {
   FormControl,
   FormMessage,
   Input,
-  ApiAlert,
   ImageUpload
 } from '@/components/ui'
 import { AlertModal } from '@/components/modals/alert-modal'
-import { UseOrigin } from '@/hooks/use-origin'
 
 interface BillboardFormProps {
   initialData: Billboard | null
@@ -86,7 +84,7 @@ export const BillboardForm: FC<BillboardFormProps> = ({ initialData }) => {
         `/api/${params.storeId}/billboards/${params.billboardId}`
       )
       router.refresh()
-      router.push('/')
+      router.push(`/${params.storeId}/billboards`)
       toast.success('Billboard has been deleted.')
     } catch (error) {
       toast.error(

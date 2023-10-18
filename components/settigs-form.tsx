@@ -23,8 +23,8 @@ import {
   Input,
   ApiAlert
 } from '@/components/ui'
+import { UseOrigin } from '@/hooks'
 import { AlertModal } from '@/components/modals/alert-modal'
-import { UseOrigin } from '@/hooks/use-origin'
 
 interface SettinsFormProps {
   initialData: Store

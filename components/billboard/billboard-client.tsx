@@ -1,28 +1,32 @@
 'use client'
 
-import { FC, useEffect, useState } from 'react'
+import { FC } from 'react'
+import Image from 'next/image'
 import { Plus } from 'lucide-react'
+import { Billboard } from '@prisma/client'
 import { useParams, useRouter } from 'next/navigation'
 
-import { ApiAlert, Button, Heading, Separator } from '@/components/ui'
-import axios from 'axios'
-import Image from 'next/image'
+// import { UseOrigin } from '@/hooks'
+import { Button, Heading, Separator } from '@/components/ui'
+import {
+  BillboardColumn,
+  columns
+} from '@/components/billboard/billboard-columns'
+import { DataTable } from '@/components/billboard/billboard-table'
 
-export const BillboardClient: FC = () => {
+interface BillboardClientProps {
+  data: BillboardColumn[]
+}
+
+export const BillboardClient: FC<BillboardClientProps> = ({ data }) => {
   const params = useParams()
   const router = useRouter()
-
-  const [billboards, setBillboads] = useState([])
-  useEffect(() => {
-    axios
-      .get(`/api/${params.storeId}/billboards`)
-      .then((res) => setBillboads(res.data))
-  }, [])
+  // const origin = UseOrigin()
   return (
     <>
       <div className="flex items-center justify-between">
         <Heading
-          title={`Billboards (${billboards.length})`}
+          title={`Billboards (${data.length})`}
           description="Manage billboards for your store."
         />
         <Button
@@ -32,7 +36,8 @@ export const BillboardClient: FC = () => {
         </Button>
       </div>
       <Separator className="my-4" />
-      {billboards.map((billboard: any) => (
+      <DataTable columns={columns} data={data} searchKey="label" />
+      {/* {data.map((billboard: any) => (
         <div key={billboard.id}>
           {billboard?.label}
           <Image
@@ -42,14 +47,14 @@ export const BillboardClient: FC = () => {
             height={100}
           />
         </div>
-      ))}
+      ))} */}
       <Separator className="my-4" />
 
-      <ApiAlert
+      {/* <ApiAlert
         title="NEXT_PUBLIC_API_URL"
         description={`${origin}/api/${params.billboardId}`}
         variant="public"
-      />
+      /> */}
     </>
   )
 }

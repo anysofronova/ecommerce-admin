@@ -1,18 +1,15 @@
 'use client'
 
 import { FC } from 'react'
-import Image from 'next/image'
 import { Plus } from 'lucide-react'
-import { Billboard } from '@prisma/client'
 import { useParams, useRouter } from 'next/navigation'
 
-// import { UseOrigin } from '@/hooks'
-import { Button, Heading, Separator } from '@/components/ui'
 import {
   BillboardColumn,
   columns
 } from '@/components/billboard/billboard-columns'
 import { DataTable } from '@/components/billboard/billboard-table'
+import { Button, Heading, Separator, ApiList } from '@/components/ui'
 
 interface BillboardClientProps {
   data: BillboardColumn[]
@@ -37,24 +34,9 @@ export const BillboardClient: FC<BillboardClientProps> = ({ data }) => {
       </div>
       <Separator className="my-4" />
       <DataTable columns={columns} data={data} searchKey="label" />
-      {/* {data.map((billboard: any) => (
-        <div key={billboard.id}>
-          {billboard?.label}
-          <Image
-            src={billboard.imageUrl}
-            alt="Photo"
-            width={100}
-            height={100}
-          />
-        </div>
-      ))} */}
+      <Heading title="API" description="API calls for Billboads" />
       <Separator className="my-4" />
-
-      {/* <ApiAlert
-        title="NEXT_PUBLIC_API_URL"
-        description={`${origin}/api/${params.billboardId}`}
-        variant="public"
-      /> */}
+      <ApiList entityName="billboards" entityIdName="billboardId" />
     </>
   )
 }

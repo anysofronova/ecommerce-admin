@@ -88,7 +88,7 @@ export const SettinsForm: FC<SettinsFormProps> = ({ initialData }) => {
         onClose={() => setOpen(false)}
       />
       <div className="flex items-center justify-between">
-        <Heading title="Settings" description="Manage store preferences" />
+        <Heading title="Settings" description="Manage store preferences." />
         <Button variant="destructive" size="icon" onClick={() => setOpen(true)}>
           <Trash className="h-4 w-4" />
         </Button>

@@ -2,8 +2,7 @@
 
 import { useEffect, useState } from 'react'
 
-import { Modal } from '@/components/ui/modal'
-import { useStoreModal } from '@/hooks/use-store-modal'
+import { useStoreModal } from '@/hooks'
 
 const SetupPage = () => {
   const onOpen = useStoreModal((state) => state.onOpen)

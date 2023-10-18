@@ -18,7 +18,7 @@ import {
   Input,
   Button
 } from '@/components/ui'
-import { useStoreModal } from '@/hooks/use-store-modal'
+import { useStoreModal } from '@/hooks'
 
 const formSchema = z.object({
   name: z.string().min(1)
@@ -75,7 +75,7 @@ export const StoreModal = () => {
                         {...field}
                       />
                     </FormControl>
-                    <FormMessage></FormMessage>
+                    <FormMessage />
                   </FormItem>
                 )}
               />
